@@ -1,0 +1,16 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "8.0.0",
+  "options": {
+    "inputs": [
+      "http://sismilenio.servientrega.com.co/wsrastreoenvios/wsrastreoenvios.asmx?WSDL"
+    ],
+    "namespaceMappings": [
+      "*, ServientregaApi.ServiceReference"
+    ],
+    "outputFile": "ServiceReference.cs",
+    "serializerMode": "XmlSerializer",
+    "targetFramework": "net9.0",
+    "typeReuseMode": "All"
+  }
+}
