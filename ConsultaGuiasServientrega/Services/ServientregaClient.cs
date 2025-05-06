@@ -95,7 +95,7 @@ namespace ProyectoServientrega.Services
                 var xml = new XElement("guias",
                     guias.Select(g =>
                         new XElement("guia",
-                            new XElement("numero_guia", g.NumeroGuia)
+                            new XElement("numero_guia", g.NumeroGuia.Trim())
                         )
                     )
                 );
@@ -131,8 +131,10 @@ namespace ProyectoServientrega.Services
 
                 foreach (var info in resultados)
                 {
-                    var guia = info.Elements().FirstOrDefault(e => e.Name.LocalName == "Guia")?.Value;
-                    var fecha = info.Elements().FirstOrDefault(e => e.Name.LocalName == "Fecha_Entrega")?.Value;
+                var guia = info.Elements().FirstOrDefault(e => e.Name.LocalName == "Guia")?.Value;
+                    guia = guia?.Trim();
+
+                var fecha = info.Elements().FirstOrDefault(e => e.Name.LocalName == "Fecha_Entrega")?.Value;
 
                     Console.WriteLine($"📬 Guia: {guia} — FechaEntrega: {fecha}");
 
@@ -155,7 +157,7 @@ namespace ProyectoServientrega.Services
                         }
                     }
 
-             //       _db.ActualizarFechaLlegada(guia, fecha);
+                 //   _db.ActualizarFechaLlegada(guia, fecha);
                 }
 
 

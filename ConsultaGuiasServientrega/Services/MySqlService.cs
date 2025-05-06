@@ -26,7 +26,7 @@ namespace ProyectoServientrega.Services
                 string sql = @"
                     SELECT guia, ods, envio, llegada
                     FROM movimiento
-                    WHERE tipo = 0
+                    WHERE tipo IN (0,1) 
                       AND (llegada IS NULL OR llegada = '')
                       AND envio >= CURDATE() - INTERVAL 90 DAY;
                 ";

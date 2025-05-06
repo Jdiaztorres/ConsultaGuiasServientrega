@@ -25,33 +25,32 @@ class Program
         // 🔌 Inicializar servicio de base de datos
         var dbService = new MySqlService(conexion);
 
-         // 📦 Lista de ejemplo 
-            var guiasValidas = new List<GuiaInfo>
-            {
-                new GuiaInfo { NumeroGuia = "2229199910" },
-                new GuiaInfo { NumeroGuia = "2229205337" },
-                new GuiaInfo { NumeroGuia = "2229206090" },
+        /* // 📦 Lista de ejemplo 
+           var guiasValidas = new List<GuiaInfo>
+           {
+               new GuiaInfo { NumeroGuia = "2229200239" },
+               new GuiaInfo { NumeroGuia = "2257929327" },
+               new GuiaInfo { NumeroGuia = "2262252447" },
+           };
 
-            };
-
-            Console.WriteLine("🚀 Ejecutando prueba con 3 guías...");
-            var api = new ServientregaClient(dbService, endpoint);
-            await api.ConsultarGuiasEstado(guiasValidas);
+           Console.WriteLine("🚀 Ejecutando prueba con 3 guías...");
+           var api = new ServientregaClient(dbService, endpoint);
+           await api.ConsultarGuiasEstado(guiasValidas);*/
 
 
-        /* // 🔍 Obtener guías desde DB
-         var (guiasValidas, guiasInvalidas) = dbService.ObtenerGuias();
+        // 🔍 Obtener guías desde DB
+        var (guiasValidas, guiasInvalidas) = dbService.ObtenerGuias();
 
-              // 📤 Exportar inválidas
-              File.WriteAllText("GuiasInvalidas.csv", "Guia,ODS,Envio,Llegada\n");
-              foreach (var g in guiasInvalidas)
-                  File.AppendAllText("GuiasInvalidas.csv", $"{g.NumeroGuia},{g.OrdenDeServicio},{g.FechaEnvio},{g.FechaLlegada}\n");
+             // 📤 Exportar inválidas
+             File.WriteAllText("GuiasInvalidas.csv", "Guia,ODS,Envio,Llegada\n");
+             foreach (var g in guiasInvalidas)
+                 File.AppendAllText("GuiasInvalidas.csv", $"{g.NumeroGuia},{g.OrdenDeServicio},{g.FechaEnvio},{g.FechaLlegada}\n");
 
-              Console.WriteLine($"✅ Guías válidas: {guiasValidas.Count}");
-              Console.WriteLine($"⚠️ Guías inválidas: {guiasInvalidas.Count}");
+             Console.WriteLine($"✅ Guías válidas: {guiasValidas.Count}");
+             Console.WriteLine($"⚠️ Guías inválidas: {guiasInvalidas.Count}");
 
-              // 🚀 Ejecutar consulta a Servientrega
-              var api = new ServientregaClient(dbService, endpoint);
-              await api.ConsultarGuiasEstado(guiasValidas); */
+             // 🚀 Ejecutar consulta a Servientrega
+             var api = new ServientregaClient(dbService, endpoint);
+             await api.ConsultarGuiasEstado(guiasValidas); 
     }
 }
